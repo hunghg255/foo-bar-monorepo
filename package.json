@@ -1,0 +1,35 @@
+{
+  "name": "foo-bar-monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@9.9.0",
+  "description": "Monorepo of project-name",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "build": "pnpm run --filter=\"./packages/*\" build",
+    "dev": "pnpm run --filter=\"./packages/*\" dev",
+    "playground": "pnpm run --filter=\"./playground\" start",
+    "lint": "eslint --cache .",
+    "lint:fix": "pnpm run lint --fix",
+    "test": "vitest",
+    "release": "bumpp -r && pnpm publish -r",
+    "prepublishOnly": "pnpm run build"
+  },
+  "devDependencies": {
+    "@sxzz/eslint-config": "^4.1.6",
+    "@sxzz/prettier-config": "^2.0.2",
+    "@types/node": "^20.16.5",
+    "bumpp": "^9.5.2",
+    "eslint": "^9.10.0",
+    "prettier": "^3.3.3",
+    "tsup": "^8.2.4",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  },
+  "engines": {
+    "node": ">=18.16.0"
+  },
+  "prettier": "@sxzz/prettier-config"
+}
